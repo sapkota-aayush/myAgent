@@ -18,13 +18,21 @@ OpenClaw targets **Node 22.14+** (docs often recommend **Node 24**). If you see 
 
 ## 1. Install OpenClaw (Windows)
 
-In **PowerShell**:
+**Recommended (normal):** use **npm**. OpenClaw needs **Node ≥ 22.14** (Node **24** is fine). If `node -v` shows **v21** or lower, install current Node from [https://nodejs.org](https://nodejs.org/) (LTS), then open a **new** terminal.
+
+```powershell
+node -v
+npm install -g openclaw@latest
+openclaw onboard --install-daemon
+```
+
+If `openclaw` is not found after install, close the terminal, open a new one, or add your global npm folder to PATH (run `npm prefix -g` — the `openclaw.cmd` usually lives in that folder).
+
+**Optional:** installer script (only if HTTPS works on your network):
 
 ```powershell
 iwr -useb https://openclaw.ai/install.ps1 | iex
 ```
-
-If `openclaw` is not found afterward, close and reopen the terminal, or check the install script’s notes for PATH.
 
 ### If `iwr` fails: “connection was closed” / TLS / Schannel
 
