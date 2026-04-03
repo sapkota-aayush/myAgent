@@ -51,7 +51,22 @@ npm install -g openclaw@latest
 
 If it still fails, reboot once and retry the two lines above.
 
-If `openclaw` is not found after install, close the terminal, open a new one, or add your global npm folder to PATH (`npm prefix -g` — `openclaw.cmd` lives there).
+If `openclaw` is not found after install, the CLI is usually here: **`%AppData%\npm\openclaw.cmd`** (full path like `C:\Users\YOU\AppData\Roaming\npm\openclaw.cmd`). That folder is often **missing from PATH**.
+
+**Run without fixing PATH:**
+
+```bat
+"%AppData%\npm\openclaw.cmd" --version
+"%AppData%\npm\openclaw.cmd" onboard --install-daemon
+```
+
+**Fix permanently (recommended):** Windows → search **environment variables** → **Edit the system environment variables** → **Environment Variables** → under *User*, select **Path** → **New** → paste:
+
+`%AppData%\npm`
+
+→ OK, then **open a new** terminal. After that, `openclaw` works everywhere.
+
+The repo script **`scripts\install-openclaw.bat`** prepends `%AppData%\npm` to PATH for that window only so `openclaw --version` works right after install.
 
 Optional (PowerShell): `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`
 
