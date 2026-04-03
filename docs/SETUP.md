@@ -1,4 +1,6 @@
-# Setup guide (OpenClaw first)
+# Setup guide (full stack)
+
+**New here?** Do **[OPENCLAW.md](OPENCLAW.md)** first (install, WhatsApp QR, gateway, checklist). Come back to this file for cron, Calendar, and Mem0.
 
 Official OpenClaw docs: [Getting started](https://docs.openclaw.ai/start/getting-started), [Automation & tasks](https://docs.openclaw.ai/automation), [WhatsApp channel](https://docs.openclaw.ai/channels/whatsapp.md).
 

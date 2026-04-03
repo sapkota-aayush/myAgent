@@ -8,7 +8,8 @@ Personal **WhatsApp-first** assistant: morning goals → **Google Calendar**, ev
 
 | Path | Purpose |
 |------|---------|
-| `docs/SETUP.md` | Install OpenClaw, WhatsApp QR, cron ideas, credential checklist |
+| [docs/OPENCLAW.md](docs/OPENCLAW.md) | **Start here:** OpenClaw + WhatsApp QR, checklist, troubleshooting |
+| [docs/SETUP.md](docs/SETUP.md) | Full setup: cron, Calendar, Mem0, `.env` |
 | `openclaw/AGENTS.md` | Standing orders template (copy into your OpenClaw workspace) |
 | `prompts/` | Morning / evening message templates for cron or manual use |
 | `journal/` | Optional local daily logs ([format](docs/JOURNAL_FORMAT.md); personal `.md` files gitignored) |
@@ -25,11 +26,10 @@ Evening cron → WhatsApp: "What did you do?"
 
 ## Quick start
 
-1. Read [docs/SETUP.md](docs/SETUP.md).
-2. Copy `.env.example` → `.env` and fill in keys **only as you need them** (local-first; no server required to start).
-3. Install OpenClaw and connect WhatsApp (QR). Keep the **gateway running** for scheduled messages.
-4. Copy `openclaw/AGENTS.md` into your OpenClaw workspace and adjust times, tone, and your phone number.
-5. Add Google Calendar + Mem0 when ready (same doc).
+1. Follow **[docs/OPENCLAW.md](docs/OPENCLAW.md)** until WhatsApp ↔ agent works (gateway running).
+2. Optional: copy `.env.example` → `.env` when you add Calendar/Mem0/scripts (not required for OpenClaw-only chat).
+3. Then use [docs/SETUP.md](docs/SETUP.md) for cron, Google Calendar, and Mem0.
+4. Copy `openclaw/AGENTS.md` into your OpenClaw workspace (also listed in OPENCLAW.md).
 
 **Stack note:** You can stay **OpenClaw-only** for v1. **FastAPI** (or another small server) is optional—only needed if you want OAuth callbacks or webhooks in this repo later.
 
