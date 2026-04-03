@@ -20,17 +20,29 @@ OpenClaw targets **Node 22.14+** (docs often recommend **Node 24**). If you see 
 
 **Recommended (normal):** use **npm**. OpenClaw needs **Node ≥ 22.14** (Node **24** is fine). If `node -v` shows **v21** or lower, install current Node from [https://nodejs.org](https://nodejs.org/) (LTS), then open a **new** terminal.
 
-```powershell
+**Easiest on Windows:** use **Command Prompt** (`cmd.exe`, not PowerShell) so `npm` is just `npm`:
+
+```bat
 node -v
-npm.cmd install -g openclaw@latest
-openclaw.cmd onboard --install-daemon
+npm install -g openclaw@latest
+openclaw --version
+openclaw onboard --install-daemon
 ```
 
-**PowerShell + “npm.ps1 cannot be loaded / not digitally signed”:** On some PCs, `npm` resolves to `C:\npm.ps1` before `npm.cmd`, and execution policy blocks it. Always use **`npm.cmd`** (and **`openclaw.cmd`** if `openclaw` fails the same way). Alternative: **Command Prompt** (`cmd.exe`) — there `npm` runs the `.cmd` shim.
+**PowerShell only:** if `npm` hits `npm.ps1` / “not digitally signed”, use `npm.cmd` and `openclaw.cmd` instead, or run the same four lines from **cmd**.
 
-If `openclaw` is not found after install, close the terminal, open a new one, or add your global npm folder to PATH (run `npm.cmd prefix -g` — `openclaw.cmd` usually lives in that folder).
+**`npm ERR! EBUSY` / rename `openclaw`:** Something has the global folder locked (another terminal, gateway, or stuck `node`). Close other terminals and any running OpenClaw, then:
 
-Optional fix (current user only): `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`
+```bat
+npm uninstall -g openclaw
+npm install -g openclaw@latest
+```
+
+If it still fails, reboot once and retry the two lines above.
+
+If `openclaw` is not found after install, close the terminal, open a new one, or add your global npm folder to PATH (`npm prefix -g` — `openclaw.cmd` lives there).
+
+Optional (PowerShell): `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`
 
 **Optional:** installer script (only if HTTPS works on your network):
 
