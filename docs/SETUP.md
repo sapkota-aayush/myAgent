@@ -115,15 +115,26 @@ openclaw cron remove <jobId>
 - Sign up for Mem0; create an API key.
 - After each morning/evening turn, upsert a short memory (preferences, recap)—**not** the only copy of “today’s committed plan” (keep a dated file or DB keyed by `YYYY-MM-DD` in your timezone).
 
-## 7. Credential checklist (nothing committed here)
+## 7. Environment file (this repo)
+
+Copy the template and edit locally:
+
+```bash
+cp .env.example .env
+```
+
+`.env` is gitignored. Fill sections as you enable each integration (you do not need every key on day one).
+
+## 8. Credential checklist (nothing committed here)
 
 | Credential | Where it lives |
 |------------|----------------|
-| LLM provider API key | OpenClaw onboarding / env |
+| LLM provider API key | OpenClaw onboarding and/or `.env` (`OPENAI_API_KEY`, etc.) |
 | WhatsApp session | `~/.openclaw/credentials/whatsapp/` (do not copy into repo) |
-| Google OAuth client + refresh token | Gateway host only |
-| Mem0 API key | Env on gateway host |
+| Google OAuth client + refresh token | `.env` on your machine |
+| Mem0 API key | `.env` |
+| Meta WhatsApp Cloud (if used) | `.env` — see `.env.example` |
 
-## 8. Copy standing orders into your workspace
+## 9. Copy standing orders into your workspace
 
 Copy `openclaw/AGENTS.md` from this repo into the OpenClaw workspace the gateway uses, then edit phone number, timezone, and tone.

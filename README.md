@@ -26,9 +26,12 @@ Evening cron → WhatsApp: "What did you do?"
 ## Quick start
 
 1. Read [docs/SETUP.md](docs/SETUP.md).
-2. Install OpenClaw and connect WhatsApp (QR). Keep the **gateway running** for scheduled messages.
-3. Copy `openclaw/AGENTS.md` into your OpenClaw workspace and adjust times, tone, and your phone number.
-4. Add Google Calendar + Mem0 when ready (same doc).
+2. Copy `.env.example` → `.env` and fill in keys **only as you need them** (local-first; no server required to start).
+3. Install OpenClaw and connect WhatsApp (QR). Keep the **gateway running** for scheduled messages.
+4. Copy `openclaw/AGENTS.md` into your OpenClaw workspace and adjust times, tone, and your phone number.
+5. Add Google Calendar + Mem0 when ready (same doc).
+
+**Stack note:** You can stay **OpenClaw-only** for v1. **FastAPI** (or another small server) is optional—only needed if you want OAuth callbacks or webhooks in this repo later.
 
 ## Security
 
