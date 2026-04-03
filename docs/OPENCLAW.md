@@ -22,11 +22,15 @@ OpenClaw targets **Node 22.14+** (docs often recommend **Node 24**). If you see 
 
 ```powershell
 node -v
-npm install -g openclaw@latest
-openclaw onboard --install-daemon
+npm.cmd install -g openclaw@latest
+openclaw.cmd onboard --install-daemon
 ```
 
-If `openclaw` is not found after install, close the terminal, open a new one, or add your global npm folder to PATH (run `npm prefix -g` — the `openclaw.cmd` usually lives in that folder).
+**PowerShell + “npm.ps1 cannot be loaded / not digitally signed”:** On some PCs, `npm` resolves to `C:\npm.ps1` before `npm.cmd`, and execution policy blocks it. Always use **`npm.cmd`** (and **`openclaw.cmd`** if `openclaw` fails the same way). Alternative: **Command Prompt** (`cmd.exe`) — there `npm` runs the `.cmd` shim.
+
+If `openclaw` is not found after install, close the terminal, open a new one, or add your global npm folder to PATH (run `npm.cmd prefix -g` — `openclaw.cmd` usually lives in that folder).
+
+Optional fix (current user only): `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`
 
 **Optional:** installer script (only if HTTPS works on your network):
 
