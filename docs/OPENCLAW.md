@@ -48,9 +48,26 @@ If `openclaw` is not found after install, the CLI is usually here: **`%AppData%\
 
 **Run without fixing PATH:**
 
+In **cmd** (each line is its own paste — do **not** paste lines starting with `>>`; that is PowerShell’s continuation prompt, not a command):
+
 ```bat
 "%AppData%\npm\openclaw.cmd" --version
 "%AppData%\npm\openclaw.cmd" onboard --install-daemon
+```
+
+From this repo in **cmd**, you can use the launcher (same thing, shorter):
+
+```bat
+cd C:\Users\aayus\Desktop\myAgent
+scripts\run-openclaw.bat --version
+scripts\run-openclaw.bat onboard --install-daemon
+```
+
+**If you stay in PowerShell:** quoted paths are **not** run with `"...cmd" --args`. Use the **call operator** `&`:
+
+```powershell
+& "$env:APPDATA\npm\openclaw.cmd" --version
+& "$env:APPDATA\npm\openclaw.cmd" onboard --install-daemon
 ```
 
 **Fix permanently (recommended):** Windows → search **environment variables** → **Edit the system environment variables** → **Environment Variables** → under *User*, select **Path** → **New** → paste:
