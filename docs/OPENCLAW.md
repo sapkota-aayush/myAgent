@@ -29,16 +29,9 @@ openclaw --version
 openclaw onboard --install-daemon
 ```
 
-**Cursor / VS Code still opens PowerShell?** Either:
+**Cursor defaults to PowerShell** (`npm` may hit `C:\npm.ps1` and fail). Use **Command Prompt** instead: `Win+R` → type **`cmd`** → Enter — then the same `npm` / `openclaw` lines as above.
 
-- Run **`scripts\install-openclaw.bat`** (double‑click in Explorer, or from any shell: `cmd /c scripts\install-openclaw.bat` from the repo folder), **or**
-- One line from PowerShell (forces **cmd** so `npm.ps1` is never used):
-
-```powershell
-cmd /c "npm uninstall -g openclaw & npm install -g openclaw@latest & openclaw --version"
-```
-
-Then: `cmd /c "openclaw onboard --install-daemon"` (or run `openclaw onboard --install-daemon` inside **cmd** after install).
+Or double‑click **`scripts\install-openclaw.bat`** in Explorer (it uses cmd-style `npm` and fixes PATH for that window).
 
 **PowerShell only:** if `npm` hits `npm.ps1` / “not digitally signed”, use `npm.cmd` and `openclaw.cmd` instead, or run the same four lines from **cmd**.
 
