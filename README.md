@@ -9,6 +9,7 @@ Personal **WhatsApp-first** assistant: morning goals → **Google Calendar**, ev
 | Path | Purpose |
 |------|---------|
 | [docs/OPENCLAW.md](docs/OPENCLAW.md) | **Start here:** OpenClaw + WhatsApp QR, checklist, troubleshooting |
+| [scripts/install-openclaw.bat](scripts/install-openclaw.bat) | Windows: install global OpenClaw via **cmd** (avoids PowerShell `npm.ps1` errors) |
 | [docs/SETUP.md](docs/SETUP.md) | Full setup: cron, Calendar, Mem0, `.env` |
 | `openclaw/AGENTS.md` | Standing orders template (copy into your OpenClaw workspace) |
 | `prompts/` | Morning / evening message templates for cron or manual use |
