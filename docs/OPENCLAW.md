@@ -26,6 +26,50 @@ iwr -useb https://openclaw.ai/install.ps1 | iex
 
 If `openclaw` is not found afterward, close and reopen the terminal, or check the install script’s notes for PATH.
 
+### If `iwr` fails: “connection was closed” / TLS / Schannel
+
+That usually means **HTTPS to openclaw.ai** failed on your network or TLS stack. Try **in order**:
+
+**A — Force TLS 1.2 (Windows PowerShell 5.1), then retry**
+
+```powershell
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+iwr -useb https://openclaw.ai/install.ps1 | iex
+```
+
+**B — Download with curl, then run the file**
+
+```powershell
+curl.exe -fsSL "https://openclaw.ai/install.ps1" -o "$env:TEMP\openclaw-install.ps1"
+powershell -ExecutionPolicy Bypass -File "$env:TEMP\openclaw-install.ps1"
+```
+
+If curl reports **Schannel** / **invalid token**, try (some corporate networks):
+
+```powershell
+curl.exe -k -fsSL "https://openclaw.ai/install.ps1" -o "$env:TEMP\openclaw-install.ps1"
+powershell -ExecutionPolicy Bypass -File "$env:TEMP\openclaw-install.ps1"
+```
+
+(`-k` skips certificate verification — only if you understand the risk, e.g. debugging behind a broken proxy.)
+
+**C — Skip the script: use npm** ([official alternative](https://docs.openclaw.ai/install))
+
+Requires Node **22.14+** (24 recommended):
+
+```powershell
+npm install -g openclaw@latest
+openclaw onboard --install-daemon
+```
+
+**D — Browser:** open [openclaw.ai/install.ps1](https://openclaw.ai/install.ps1), save as `install.ps1`, then:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install.ps1
+```
+
+**E — VPN / antivirus “HTTPS scan” / proxy:** temporarily disable or allowlist `openclaw.ai`, or try another network (phone hotspot).
+
 ---
 
 ## 2. Onboarding wizard
